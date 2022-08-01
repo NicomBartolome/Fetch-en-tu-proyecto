@@ -1,12 +1,26 @@
-function AbonoPromedio (Abono4,Abono6,Abono8,Abono10,Abono20){
+class abonos{
+    constructor(clientes,precio){
+        this.clientes = parseInt(clientes);
+        this.precio = precio;
+    }
+}
+
+const servicios = [];
+servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 4 Mb"),(prompt("Ingrese el precio del abono de 4 Mb"))));
+servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 6 Mb"),prompt(("Ingrese el precio del abono de 6 Mb"))));
+servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 8 Mb"),prompt(("Ingrese el precio del abono de 8 Mb"))));
+servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 10 Mb"),prompt(("Ingrese el precio del abono de 10 Mb"))));
+servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 20 Mb"),prompt(("Ingrese el precio del abono de 20 Mb"))));
+
+function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,precio10,Abono20,precio20){
 
     Abono = parseInt(Math.max(Abono4,Abono6,Abono8,Abono10,Abono20))
     
     TotalCteIngresado = Abono4 + Abono6 + Abono8 + Abono10 + Abono20
     
-    IngresoPromedio = ((1100*Abono4)+(1450*Abono6)+(1890*Abono8)+(2210*Abono10)+(3490*Abono20))/5
+    IngresoPromedio = ((precio4*Abono4)+(precio6*Abono6)+(precio8*Abono8)+(precio10*Abono10)+(precio20*Abono20))/5
 
-    TotalFacturado = ((1100*Abono4)+(1450*Abono6)+(1890*Abono8)+(2210*Abono10)+(3490*Abono20))
+    TotalFacturado = ((precio4*Abono4)+(precio6*Abono6)+(precio8*Abono8)+(precio10*Abono10)+(precio20*Abono20))
     
     switch(Abono){
         case Abono4:
@@ -30,13 +44,22 @@ function AbonoPromedio (Abono4,Abono6,Abono8,Abono10,Abono20){
     }
 }
 
-let cte4 = parseInt(prompt("Ingrese la cantidad de abonados de 4 Mb - $1100 Final"))
-let cte6 = parseInt(prompt("Ingrese la cantidad de abonados de 6 Mb - $1450 Final"))
-let cte8 = parseInt(prompt("Ingrese la cantidad de abonados de 8 Mb - $1890 Final"))
-let cte10 = parseInt(prompt("Ingrese la cantidad de abonados de 10 Mb - $2210 Final"))
-let cte20 = parseInt(prompt("Ingrese la cantidad de abonados de 20 Mb - $3490 Final"))
+let cte4 = servicios[0].clientes;
+let precio4 = servicios[0].precio;
 
-AbonoPromedio(cte4,cte6,cte8,cte10,cte20)
+let cte6 = servicios[1].clientes;
+let precio6 = servicios[1].precio;
+
+let cte8 = servicios[2].clientes;
+let precio8 = servicios[2].precio;
+
+let cte10 = servicios[3].clientes;
+let precio10 = servicios[3].precio;
+
+let cte20 = servicios[4].clientes;
+let precio20 = servicios[4].precio;
+
+AbonoPromedio(cte4,precio4,cte6,precio6,cte8,precio8,cte10,precio10,cte20,precio20)
 
 console.log("La cantidad de clientes ingresados es de " + TotalCteIngresado)
 console.log("El total facturado es de $" + TotalFacturado + ".-")
