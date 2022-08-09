@@ -1,16 +1,19 @@
+
+let datos = document.getElementById("datos")
+let datos1 = datos.getElementsByTagName('input')
+let cantidadInput = datos1.length
+
+let datoCte = document.getElementsByClassName('cte');
+let datoPrecio = document.getElementsByClassName('precio');
+
+const servicios = [];
+
 class abonos{
     constructor(clientes,precio){
         this.clientes = parseInt(clientes);
         this.precio = precio;
     }
 }
-
-const servicios = [];
-servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 4 Mb"),(prompt("Ingrese el precio del abono de 4 Mb"))));
-servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 6 Mb"),prompt(("Ingrese el precio del abono de 6 Mb"))));
-servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 8 Mb"),prompt(("Ingrese el precio del abono de 8 Mb"))));
-servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 10 Mb"),prompt(("Ingrese el precio del abono de 10 Mb"))));
-servicios.push(new abonos(prompt("Ingrese la cantidad de abonados de 20 Mb"),prompt(("Ingrese el precio del abono de 20 Mb"))));
 
 function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,precio10,Abono20,precio20){
 
@@ -44,6 +47,19 @@ function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,pre
     }
 }
 
+function ejecutarPrograma(){
+
+for(let i = 0; i < cantidadInput; i++){
+    console.log(datos1[i].value);
+    cte = datos1[i].value;
+    i++;
+    precio = datos1[i].value;
+    console.log(datos1[i].value);
+    console.log(i);
+    servicios.push(new abonos(cte,precio));
+    
+} 
+
 let cte4 = servicios[0].clientes;
 let precio4 = servicios[0].precio;
 
@@ -61,7 +77,20 @@ let precio20 = servicios[4].precio;
 
 AbonoPromedio(cte4,precio4,cte6,precio6,cte8,precio8,cte10,precio10,cte20,precio20)
 
-console.log("La cantidad de clientes ingresados es de " + TotalCteIngresado)
-console.log("El total facturado es de $" + TotalFacturado + ".-")
-console.log("El ingreso por cliente promedio es de $" + IngresoPromedio)
+let CtesIngresados = document.createElement('p');
+CtesIngresados.innerHTML = "La cantidad de clientes ingresados es de " + TotalCteIngresado;
+document.body.append(CtesIngresados);
 
+let TFac = document.createElement('p');
+TFac.innerHTML = "El total facturado es de $" + TotalFacturado + ".-";
+document.body.append(TFac);
+
+let Iprom = document.createElement('p');
+Iprom.innerHTML = "El ingreso por cliente promedio es de $" + IngresoPromedio;
+document.body.append(Iprom);
+
+}
+
+
+let boton = document.getElementById('ejecutar');
+boton.addEventListener('click',ejecutarPrograma);
