@@ -27,22 +27,34 @@ function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,pre
     
     switch(Abono){
         case Abono4:
-            console.log("El abono mas vendido es el de 4 Mb");
+            let CtesAbonos4 = document.createElement('h3');
+            CtesAbonos4.innerHTML = "El abono mas vendido es el de 4 Mb";
+            document.body.append(CtesAbonos4);
             break;
         case Abono6:
-            console.log("El abono mas vendido es el de 6 Mb");
+            let CtesAbonos6 = document.createElement('h3');
+            CtesAbonos6.innerHTML = "El abono mas vendido es el de 6 Mb";
+            document.body.append(CtesAbonos6);
             break;
         case Abono8:
-            console.log("El abono mas vendido es el de 8 Mb");
+            let CtesAbonos8 = document.createElement('h3');
+            CtesAbonos8.innerHTML = "El abono mas vendido es el de 8 Mb";
+            document.body.append(CtesAbonos8);
             break;
         case Abono10:
-            console.log("El abono mas vendido es el de 10 Mb");
+            let CtesAbonos10 = document.createElement('h3');
+            CtesAbonos10.innerHTML = "El abono mas vendido es el de 10 Mb";
+            document.body.append(CtesAbonos10);
             break;
         case Abono20:
-            console.log("El abono mas vendido es el de 20 Mb");
+            let CtesAbonos20 = document.createElement('h3');
+            CtesAbonos20.innerHTML = "El abono mas vendido es el de 20 Mb";
+            document.body.append(CtesAbonos20);
             break;
         default:
-            console.log("No se pudo determinar cual es el abono mas vendido");
+            let CtesAbonos = document.createElement('h3');
+            CtesAbonos.innerHTML = "No se pudo determinar cual es el abono mas vendido";
+            document.body.append(CtesAbonos);
             break;          
     }
 }
@@ -77,15 +89,15 @@ let precio20 = servicios[4].precio;
 
 AbonoPromedio(cte4,precio4,cte6,precio6,cte8,precio8,cte10,precio10,cte20,precio20)
 
-let CtesIngresados = document.createElement('p');
+let CtesIngresados = document.createElement('h3');
 CtesIngresados.innerHTML = "La cantidad de clientes ingresados es de " + TotalCteIngresado;
 document.body.append(CtesIngresados);
 
-let TFac = document.createElement('p');
+let TFac = document.createElement('h3');
 TFac.innerHTML = "El total facturado es de $" + TotalFacturado + ".-";
 document.body.append(TFac);
 
-let Iprom = document.createElement('p');
+let Iprom = document.createElement('h3');
 Iprom.innerHTML = "El ingreso por cliente promedio es de $" + IngresoPromedio;
 document.body.append(Iprom);
 
