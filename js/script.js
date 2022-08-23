@@ -15,6 +15,7 @@ class abonos{
     }
 }
 
+
 function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,precio10,Abono20,precio20){
 
     Abono = parseInt(Math.max(Abono4,Abono6,Abono8,Abono10,Abono20))
@@ -24,6 +25,8 @@ function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,pre
     IngresoPromedio = ((precio4*Abono4)+(precio6*Abono6)+(precio8*Abono8)+(precio10*Abono10)+(precio20*Abono20))/5
 
     TotalFacturado = ((precio4*Abono4)+(precio6*Abono6)+(precio8*Abono8)+(precio10*Abono10)+(precio20*Abono20))
+
+
     
     switch(Abono){
         case Abono4:
@@ -69,30 +72,28 @@ function AbonoPromedio (Abono4,precio4,Abono6,precio6,Abono8,precio8,Abono10,pre
 function ejecutarPrograma(){
 
 for(let i = 0; i < cantidadInput; i++){
-    console.log(datos1[i].value);
     cte = datos1[i].value;
     i++;
     precio = datos1[i].value;
-    console.log(datos1[i].value);
-    console.log(i);
     servicios.push(new abonos(cte,precio));
-    
 } 
 
-let cte4 = servicios[0].clientes;
-let precio4 = servicios[0].precio;
+const [A4,A6,A8,A10,A20] = servicios;
 
-let cte6 = servicios[1].clientes;
-let precio6 = servicios[1].precio;
+let cte4 = A4.clientes;
+let precio4 = A4.precio;
 
-let cte8 = servicios[2].clientes;
-let precio8 = servicios[2].precio;
+let cte6 = A6.clientes;
+let precio6 = A6.precio;
 
-let cte10 = servicios[3].clientes;
-let precio10 = servicios[3].precio;
+let cte8 = A8.clientes;
+let precio8 = A8.precio;
 
-let cte20 = servicios[4].clientes;
-let precio20 = servicios[4].precio;
+let cte10 = A10.clientes;
+let precio10 = A10.precio;
+
+let cte20 = A20.clientes;
+let precio20 = A20.precio;
 
 AbonoPromedio(cte4,precio4,cte6,precio6,cte8,precio8,cte10,precio10,cte20,precio20)
 
@@ -115,7 +116,7 @@ localStorage.setItem('resultados', JSON.stringify(resultados));
 
 }
 
-if(localStorage.getItem('fechaUC') !== null){
+if(localStorage.getItem('fechaUC') !== null && localStorage.getItem('resultados') !== null){
     let date = localStorage.getItem('fechaUC');
     let fecha = document.createElement('h3');
     fecha.innerHTML = "La ultima vez que se uso el programa fue " + date;
