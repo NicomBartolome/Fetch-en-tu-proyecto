@@ -1,4 +1,3 @@
-
 let datos = document.getElementById("datos")
 let datos1 = datos.getElementsByTagName('input')
 let cantidadInput = datos1.length
@@ -97,22 +96,36 @@ let precio20 = A20.precio;
 
 AbonoPromedio(cte4,precio4,cte6,precio6,cte8,precio8,cte10,precio10,cte20,precio20)
 
-let CtesIngresados = document.createElement('h3');
-CtesIngresados.innerHTML = "La cantidad de clientes ingresados es de " + TotalCteIngresado;
-document.body.append(CtesIngresados);
+if(isNaN(TotalCteIngresado) && isNaN(TotalFacturado) && isNaN(IngresoPromedio)){
 
-let TFac = document.createElement('h3');
-TFac.innerHTML = "El total facturado es de $" + TotalFacturado + ".-";
-document.body.append(TFac);
+}else{
 
-let Iprom = document.createElement('h3');
-Iprom.innerHTML = "El ingreso por cliente promedio es de $" + IngresoPromedio;
-document.body.append(Iprom);
+    /* Se eligio Sweet Alert ya que el programa no mustra ninguna notificacion sobre el resultado de la operacion, me parecio correcto mostrar una notificacion de indiuqe que salio todo bien en el calculo con Sweet Alert */
 
-const resultados = {Clientes: TotalCteIngresado, Dinero: TotalFacturado, IngresoP: IngresoPromedio};
+    Swal.fire({
+        title: 'OK',
+        text: 'Se ha realizado el calculo exitosamente',
+        icon: 'success',
+        confirmButtonText: 'Ir al resultado'
+    })
 
-localStorage.setItem('fechaUC', new Date())
-localStorage.setItem('resultados', JSON.stringify(resultados));
+    let CtesIngresados = document.createElement('h3');
+    CtesIngresados.innerHTML = "La cantidad de clientes ingresados es de " + TotalCteIngresado;
+    document.body.append(CtesIngresados);
+
+    let TFac = document.createElement('h3');
+    TFac.innerHTML = "El total facturado es de $" + TotalFacturado + ".-";
+    document.body.append(TFac);
+
+    let Iprom = document.createElement('h3');
+    Iprom.innerHTML = "El ingreso por cliente promedio es de $" + IngresoPromedio;
+    document.body.append(Iprom);
+
+    const resultados = {Clientes: TotalCteIngresado, Dinero: TotalFacturado, IngresoP: IngresoPromedio};
+
+    localStorage.setItem('fechaUC', new Date())
+    localStorage.setItem('resultados', JSON.stringify(resultados));
+}
 
 }
 
