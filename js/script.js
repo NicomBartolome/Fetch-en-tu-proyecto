@@ -160,5 +160,22 @@ if(localStorage.getItem('fechaUC') !== null && localStorage.getItem('resultados'
     
 }
 
+function Referencias(){
+    fetch('js/abonos.json')
+        .then((consulta) => consulta.json())
+        .then((data) => {
+
+           let popUpRespuesta = window.open("","Precios referenciales","width=400,height=400,scrollbars=NO")
+           popUpRespuesta.document.write('<h3>Abonos disponibles: </h3><br>')
+           for(let p = 0; p < data.length; p++){
+            popUpRespuesta.document.write( data[p].Producto + ' - ' + '$' + data[p].precio + '<br>')
+
+           }
+        })
+}
+
+let referencia = document.getElementById('consulta');
+referencia.addEventListener('click',Referencias);
+
 let boton = document.getElementById('ejecutar');
 boton.addEventListener('click',ejecutarPrograma);
